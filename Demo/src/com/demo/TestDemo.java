@@ -11,7 +11,7 @@ public class TestDemo {
 //		scan.close();
 
 //		System.out.println(getSmallestAndLargest(s, k));
-		twoSum(new int[] { 1, 2, 6, 8, 5, 3 }, 10);
+		twoSum(new int[] {  3, 3 }, 6);
 	}
 
 	public static String getSmallestAndLargest(String s, int k) {
@@ -31,6 +31,7 @@ public class TestDemo {
 	}
 
 	public static int[] twoSum(int[] nums, int target) {
+		int[] outarr = new int[2];
 		int one = 0;
 		int two = 0;
 		int i, j;
@@ -38,35 +39,51 @@ public class TestDemo {
 			one = nums[i];
 			for (j = i + 1; j < nums.length; j++) {
 				two = nums[j];
-				int[] outarr = new int[2];
+				
 				if (one + two == target) {
-					int k=0,l = 0;
-					while (k < nums.length) {
+					int k = 0, l = 0;
+
+					if (one == two) {
+						int p = 0;
+						while (k < nums.length) {
+							if (nums[k] == one) {
+
+								outarr[p] = k;
+								p++;
+								System.out.println("indexw " + k);
+//								break;
+							}
+							k += 1;
+
+						}
+					} else {
+
+						while (k < nums.length) {
 							if (nums[k] == one) {
 								outarr[0] = k;
 								System.out.println("index " + k);
 								break;
-							}else {
+							} else {
 								k += 1;
 							}
-						} 
-					while (l < nums.length) {
-						if (nums[l] == two) {
-							outarr[1] = l;
-							System.out.println("index " + l);
-							break;
-						}else {
-							l += 1;
+						}
+						while (l < nums.length) {
+							if (nums[l] == two) {
+								outarr[1] = l;
+								System.out.println("index " + l);
+								break;
+							} else {
+								l += 1;
+							}
 						}
 					}
 					System.out.println("sum is " + one + " " + two);
 					System.out.println(" first::" + outarr[0] + " \n second::" + outarr[1]);
-					return nums;
 				}
 			}
 		}
 
-		return nums;
+		return outarr;
 
 	}
 }
