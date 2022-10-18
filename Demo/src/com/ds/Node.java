@@ -1,4 +1,4 @@
-package com.demo;
+package com.ds;
 
 
 public class Node<E> {

@@ -1,17 +1,53 @@
-package com.demo;
+package com.ds;
 
-import java.util.Scanner;
+import java.util.Arrays;
+
+import com.stack.LinkedStack;
+import com.stack.Stack;
 
 public class TestDemo {
 
 	public static void main(String[] args) {
+
+		Runtime r = Runtime.getRuntime();
+	
+	
 //		Scanner scan = new Scanner(System.in);
 //		String s = scan.next();
 //		int k = scan.nextInt();
 //		scan.close();
+//		LinkedList<String> list = new LinkedList<>();
+//		list.addFirst(null);
+
+//		int a[][] = new int[][] { { 1, 2, 3 }, { 1, 2, 3 } };
+//		int b[][] = new int[][] { { 1, 2, 3 }, { 1, 2, 3 } };
+
+//		int[] c = new int[] { 1, 2, 3 };
+//		int[] d = new int[] { 1, 2, 3 };
+
+//		System.out.println(Arrays.deepEquals(a, b));
+
+//	System.out.println(isMatched("(({{[[]]}}))"));;
 
 //		System.out.println(getSmallestAndLargest(s, k));
-		twoSum(new int[] {  3, 3 }, 6);
+//		twoSum(new int[] {  3, 3 }, 6);
+	}
+
+	public static boolean isMatched(String expression) {
+		final String opening = "({["; // opening delimiters
+		final String closing = ")}]"; // respective closing delimiters
+		Stack<Character> buffer = new LinkedStack<>();
+		for (char c : expression.toCharArray()) {
+			if (opening.indexOf(c) != -1) // this is a left delimiter
+				buffer.push(c);
+			else if (closing.indexOf(c) != -1) { // this is a right delimiter
+				if (buffer.isEmpty()) // nothing to match with
+					return false;
+				if (closing.indexOf(c) != opening.indexOf(buffer.pop()))
+					return false; // mismatched delimiter
+			}
+		}
+		return buffer.isEmpty(); // were all opening delimiters matched?
 	}
 
 	public static String getSmallestAndLargest(String s, int k) {
@@ -39,7 +75,7 @@ public class TestDemo {
 			one = nums[i];
 			for (j = i + 1; j < nums.length; j++) {
 				two = nums[j];
-				
+
 				if (one + two == target) {
 					int k = 0, l = 0;
 

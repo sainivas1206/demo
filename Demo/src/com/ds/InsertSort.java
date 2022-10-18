@@ -1,9 +1,10 @@
-package com.demo;
+package com.ds;
 
 public class InsertSort {
 	
 	public static void main(String[] args) {
 		
+		String str = new String();
 		char[] arr = {'b','c','d','e','f','a'};
 		for(char a = 'a'; a<=100;a++) {
 			System.out.println(a);

@@ -1,4 +1,4 @@
-package com.demo;
+package com.ds;
 
 public class TicTacToe {
 	public static final int X = 1, O = -1; // players
